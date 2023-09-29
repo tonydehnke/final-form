@@ -1,7 +1,18 @@
-import _extends from '@babel/runtime/helpers/esm/extends';
 import _objectWithoutPropertiesLoose from '@babel/runtime/helpers/esm/objectWithoutPropertiesLoose';
 
-//      
+const _extends = function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+  return target;
+}
+
+//
 
 var charCodeOfDot = ".".charCodeAt(0);
 var reEscapeChar = /\\(\\)?/g;
@@ -74,7 +85,7 @@ var toPath = function toPath(key) {
   return keysCache[key];
 };
 
-//      
+//
 var getIn = function getIn(state, complexKey) {
   // Intentionally using iteration rather than recursion
   var path = toPath(complexKey);
@@ -190,7 +201,7 @@ var setIn = function setIn(state, key, value, destroyArrays) {
 var FORM_ERROR = "FINAL_FORM/form-error";
 var ARRAY_ERROR = "FINAL_FORM/array-error";
 
-//      
+//
 
 
 /**
@@ -254,10 +265,10 @@ function publishFieldState(formState, field) {
   };
 }
 
-//      
+//
 var fieldSubscriptionItems = ["active", "data", "dirty", "dirtySinceLastSubmit", "error", "initial", "invalid", "length", "modified", "modifiedSinceLastSubmit", "pristine", "submitError", "submitFailed", "submitSucceeded", "submitting", "touched", "valid", "value", "visited", "validating"];
 
-//      
+//
 
 var shallowEqual = function shallowEqual(a, b) {
   if (a === b) {
@@ -281,7 +292,7 @@ var shallowEqual = function shallowEqual(a, b) {
   return true;
 };
 
-//      
+//
 function subscriptionFilter (dest, src, previous, subscription, keys, shallowEqualKeys) {
   var different = false;
   keys.forEach(function (key) {
@@ -295,7 +306,7 @@ function subscriptionFilter (dest, src, previous, subscription, keys, shallowEqu
   return different;
 }
 
-//      
+//
 var shallowEqualKeys$1 = ["data"];
 
 /**
@@ -312,10 +323,10 @@ var filterFieldState = function filterFieldState(state, previousState, subscript
   return different || force ? result : undefined;
 };
 
-//      
+//
 var formSubscriptionItems = ["active", "dirty", "dirtyFields", "dirtyFieldsSinceLastSubmit", "dirtySinceLastSubmit", "error", "errors", "hasSubmitErrors", "hasValidationErrors", "initialValues", "invalid", "modified", "modifiedSinceLastSubmit", "pristine", "submitting", "submitError", "submitErrors", "submitFailed", "submitSucceeded", "touched", "valid", "validating", "values", "visited"];
 
-//      
+//
 var shallowEqualKeys = ["touched", "visited"];
 
 /**
@@ -327,7 +338,7 @@ function filterFormState(state, previousState, subscription, force) {
   return different || force ? result : undefined;
 }
 
-//      
+//
 var memoize = function memoize(fn) {
   var lastArgs;
   var lastResult;
